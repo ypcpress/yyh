@@ -1,0 +1,73 @@
+
+
+<div class="container">
+	<div class="container-box">
+		<div class="main-content1">
+			
+			<?php
+    $cats = get_categories(); 
+    foreach ( $cats as $cat ) {
+        echo '<h2>' . $cat->name . '</h2> <ul>';
+        $args = array( 'category' => $cat->term_id, 'posts_per_page' => -1 );
+        $cat_posts = get_posts( $args );
+        foreach ( $cat_posts as $post ) {
+            echo '<li><a href="' . get_permalink( $post->ID ) . '">' . $post->post_title . '</a></li>';
+        }
+        echo '</ul>';
+    }
+    wp_reset_postdata();
+?>
+
+					</div>
+		
+
+		<div class="main-content2">
+			<?php
+if(have_posts()) {
+ while(have_posts()) :the_post(); 
+ ?><h5><?php
+ _e("Category:",'webcreative');
+ the_category('&gt;','multiple');
+ ?></h5>
+ <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+ <?php the_content();
+ endwhile;
+}
+?>
+
+		</div>
+		<div class="main-content3">
+			<?php
+if(have_posts()) {
+ while(have_posts()) :the_post(); 
+ ?><h5><?php
+ _e("Category:",'webcreative');
+ the_category('&gt;','multiple');
+ ?></h5>
+ <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+ <?php the_content();
+ endwhile;
+}
+?>
+
+		</div>
+		<div class="main-content4">
+			<?php
+if(have_posts()) {
+ while(have_posts()) :the_post(); 
+ ?><h5><?php
+ _e("Category:",'webcreative');
+ the_category('&gt;','multiple');
+ ?></h5>
+ <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+ <?php the_content();
+ endwhile;
+}
+?>
+
+		</div>
+
+	</div>
+</div>
+
+
